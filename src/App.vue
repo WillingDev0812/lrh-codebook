@@ -1,30 +1,44 @@
+
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+	<Navbar :user="user"/>
+	<div class="router-view">
+		<router-view />
+	</div>
 </template>
+<script>
+import Navbar from "./components/Navbar.vue";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+
+export default {
+	components: {
+		Navbar,
+	},
+	data() {
+		return {
+			user: null,
+		};
+	},
+	mounted() {
+		onAuthStateChanged(getAuth(), (user) => {
+			this.user = user;
+		});
+	},
+};
+</script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+:root {
+	--navbar-height: 4rem;
 }
 
-nav {
-  padding: 30px;
+html {
+	overflow-y: hidden;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+.router-view {
+	margin-top: var(--navbar-height);
+	height: calc(100vh - var(--navbar-height));
+	width: 100vw;
+	overflow-y: auto;
 }
 </style>
