@@ -1,10 +1,11 @@
 import { createStore } from 'vuex'
+import Papa from "papaparse";
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, EmailAuthProvider, reauthenticateWithCredential } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, addDoc, doc, getDoc, collection, setDoc, getDocs, deleteDoc } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -27,7 +28,8 @@ const auth = getAuth(app);
 export default createStore({
     state: {
         user: null,
-
+        codebook: null,
+        headers: [],
     },
     getters: {
     },
@@ -35,6 +37,12 @@ export default createStore({
         setUser(state, user) {
             state.user = user;
         },
+        setCodebook(state, codebook) {
+            state.codebook = codebook;
+        },
+        setHeaders(state, headers) {
+            state.headers = headers;
+        }
     },
     actions: {
         // Login
@@ -78,7 +86,7 @@ export default createStore({
                     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
                     auth.signOut();
                     // call signIn method
-                    dispatch('login', { email: originalEmail, password: userPass});
+                    dispatch('login', { email: originalEmail, password: userPass });
                     return null;
                 } catch (error) {
                     return error;
@@ -105,6 +113,163 @@ export default createStore({
             } catch (error) {
                 return Promise.reject(error);
             }
+        },
+        async fetchCodebook({ commit }) {
+            const codebook = {};
+
+            // Get all documents in the variables collection
+            const variablesCollection = collection(db, "variables");
+
+            // Loop through all documents in the variables collection
+            const snapshot = await getDocs(variablesCollection);
+
+            snapshot.forEach((doc) => {
+                // Add each document to the codebook object
+                codebook[doc.id] = doc.data().variables;
+            }
+            );
+
+            console.log(codebook);
+            commit('setCodebook', codebook);
+            return codebook;
+        },
+        async uploadCodebook({ commit, dispatch, state }, { codebookFile }) {
+            console.log("\n------------------------------------------");
+            console.log("UPLOAD CODEBOOK");
+            console.log("------------------------------------------");
+
+            // create copy of file
+            const file = Object.assign({}, codebookFile);
+
+            console.log(file);
+            console.log("\nStep 1: Update Headers");
+            const headers = file.headers;
+            const codebook = file.rows;
+
+            
+
+            await dispatch('updateHeaders', { headers });
+
+            console.log("\nStep 2: Get unique categories");
+            const uniqueCategories = new Set();
+
+            for (const row of codebook) {
+                uniqueCategories.add(row["VariableCategory"]);
+            }
+
+            console.log("Unique Categories", uniqueCategories);
+
+            console.log("\nStep 3: Generate composite codebook");
+            const compositeCodebook = {};
+
+            // Loop through all unique categories
+            for (const category of uniqueCategories) {
+                // Filter the codebook to only include variables from the current category
+                if (category != "") {
+                    const variables = codebook.filter(row => row["VariableCategory"] == category);
+
+                    // Remove the "VariableCategory" key from each variable
+                    for (const variable of variables) {
+                        compositeCodebook[category] = variables.map(({ VariableCategory, ...rest }) => rest);
+                    }
+
+                }
+            }
+
+            console.log("Composite Codebook", compositeCodebook);
+
+            console.log("\nStep 4: Delete variables collection in Firestore");
+            await dispatch('deleteVariablesCollection');
+
+            console.log("\nStep 5: Upload composite codebook to Firestore");
+            const variablesCollection = collection(db, "variables");
+
+            for (const category in compositeCodebook) {
+                // For each category, add a document to the variables collection, with the category as the document ID
+                await setDoc(doc(variablesCollection, category), {
+                    variables: compositeCodebook[category]
+                });
+            }
+
+            
+        },
+        async deleteVariablesCollection() {
+            const variablesCollection = collection(db, "variables");
+            const snapshot = await getDocs(variablesCollection);
+
+            snapshot.forEach(async (doc) => {
+                await deleteDoc(doc.ref);
+            });
+        },
+        async updateHeaders({ commit }, { headers }) {
+            // Add the headers to the headers document in the codebookData collection
+            await setDoc(doc(db, "codebookData", "headers"), {
+                headers: headers
+            }, { merge: true });
+            commit('setHeaders', headers);
+        },
+        async fetchHeaders({ commit }) {
+            // Get the headers document from the codebookData collection
+            const headersDoc = doc(db, "codebookData", "headers");
+            const headersDocSnap = await getDoc(headersDoc);
+            const headers = headersDocSnap.data().headers;
+            commit('setHeaders', headers);
+            return headers;
+        },
+        async downloadCodebook({ commit, dispatch }) {
+            console.log("\n------------------------------------------");
+            console.log("DOWNLOAD CODEBOOK");
+            console.log("------------------------------------------");
+
+            console.log("\nStep 1: Fetch Headers");
+            const headers = await dispatch('fetchHeaders');
+            console.log("Headers", headers);
+
+            console.log("\nStep 2: Get raw codebook");
+            const rawCodebook = this.state.codebook;
+            console.log("Raw Codebook", rawCodebook);
+
+            console.log("\nStep 3: Create codebook array");
+            // Loop through all variable categories
+            const codebookArray = [];
+
+            for (const category in rawCodebook) {
+                const variables = rawCodebook[category];
+
+                // Loop through all variables in the category
+                for (const variable of variables) {
+                    // Create an entry for each variable
+                    const entry = { "VariableCategory": category };
+
+                    for (const header of headers) {
+                        if (header == "VariableCategory") {
+                            continue;
+                        }
+
+                        // Add each variable to the entry
+                        if (header in variable) {
+                            entry[header] = variable[header];
+                        }
+                        else {
+                            entry[header] = "";
+                        }
+                    }
+
+                    codebookArray.push(entry);
+                }
+            }
+            console.log("Codebook Array", codebookArray);
+
+            console.log("\nStep 4: Convert codebook array to CSV");
+            const codebookCSV = Papa.unparse(codebookArray);
+
+            console.log("\nStep 5: Download CSV file");
+            const element = document.createElement("a");
+            const file = new Blob([codebookCSV], { type: "text/csv" });
+            element.href = URL.createObjectURL(file);
+            element.download = "CodeBook.csv";
+            document.body.appendChild(element); // Required for this to work in FireFox
+            element.click();
         },
     },
     modules: {

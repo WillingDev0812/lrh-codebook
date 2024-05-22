@@ -5,7 +5,7 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 const routes = [
   {
     path: '/',
-    name: 'home',
+    name: 'Home',
     component: HomeView
   },
   {
@@ -25,6 +25,14 @@ const routes = [
     path: '/new-account',
     name: 'New Account',
     component: () => import('../views/auth/NewAccount.vue'),
+    meta: {
+        requiresAuth: true
+    }
+  },
+  {
+    path: '/upload',
+    name: 'Upload Codebook',
+    component: () => import('../views/Upload.vue'),
     meta: {
         requiresAuth: true
     }

@@ -60,6 +60,15 @@
 										active-class="active"
 										>New Account</router-link
 									>
+                                    <div class="dropdown-item" @click="downloadCSV">
+                                        Download Codebook
+                                    </div>
+                                    <router-link
+										to="/upload"
+										class="dropdown-item"
+										active-class="active"
+										>Upload Codebook</router-link
+									>
 									<router-link
 										to="/logout"
 										class="dropdown-item"
@@ -78,10 +87,17 @@
 </template>
 
 <script>
+import store from "@/store";
+import Papa from "papaparse";
 export default {
 	props: {
 		user: Object,
 	},
+    methods: {
+        async downloadCSV() {
+            await store.dispatch("downloadCodebook");
+        },
+    },
 };
 </script>
 

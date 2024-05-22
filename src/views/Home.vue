@@ -68,15 +68,13 @@
 										>
 											<thead>
 												<tr>
-													<th>Variable</th>
-													<th>
-														Variable Description
+													<!-- Loop over headers -->
+													<th
+														v-for="header in headers"
+														:key="header"
+													>
+														{{ header }}
 													</th>
-													<th>
-														Intrinsic to Cohort
-														Definition
-													</th>
-													<th>Important</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -86,18 +84,13 @@
 													]"
 													:key="row.Variable"
 												>
-													<td>{{ row.Variable }}</td>
-													<td>
-														{{
-															row.VariableDescription
-														}}
-													</td>
-													<td>
-														{{
-															row.IntrinsictoCohortDefinition
-														}}
-													</td>
-													<td>{{ row.Important }}</td>
+													<!-- Loop over values corresponding to headers -->
+                                                    <td
+                                                        v-for="header in headers"
+                                                        :key="header"
+                                                    >
+                                                        {{ row[header] }}
+                                                    </td>
 												</tr>
 											</tbody>
 										</table>
@@ -115,12 +108,14 @@
 <script>
 import Papa from "papaparse";
 import Navbar from "@/components/Navbar.vue";
+import { doc, setDoc, getFirestore } from "firebase/firestore";
+import store from "@/store";
 
 export default {
 	name: "Home",
-    components: {
-        Navbar,
-    },
+	components: {
+		Navbar,
+	},
 	watch: {
 		searchQuery: function (val) {
 			// Filter categories based on search query
@@ -155,57 +150,119 @@ export default {
 			results: {},
 			filteredResults: {},
 			entryOpen: {},
-            variableList: {},
+			variableList: {},
+			headers: [],
 		};
 	},
+	methods: {
+		async publish() {
+			console.log("IN METHOD");
+			console.log(this.results);
+			await store.dispatch("uploadCodebook", { codebook: this.results });
+		},
+		async parseCSV() {
+			// Load CodeBook.csv into results
+			await Papa.parse("/CodeBook.csv", {
+				download: true,
+				header: true,
+				complete: (results) => {
+					const res = results.data;
+
+					const formattedResults = this.formatCodebook(res);
+
+					console.log(formattedResults);
+
+					this.results = formattedResults;
+					this.filteredResults = formattedResults;
+				},
+			});
+
+			// CodeBook Headers:
+			// VariableCategory,Variable,VariableDescription,IntrinsictoCohortDefinition,Important
+		},
+		async formatCodebook(res) {
+			const uniqueCategories = Object.keys(res);
+
+			console.log(uniqueCategories);
+
+			// For each unique VariableCategory, add a row with the category name
+			var formattedResults = {};
+			uniqueCategories.forEach((category) => {
+				// For each category, map the category name to a list of variables in that category
+				formattedResults[category] = res[category];
+
+				var concatenatedVariables = "";
+
+				// Concatenate all variables in the category
+				res[category].forEach((row) => {
+					concatenatedVariables += row.Variable + ", ";
+				});
+
+				if (concatenatedVariables.length > 100) {
+					concatenatedVariables =
+						concatenatedVariables.substring(0, 100) + "...";
+				} else {
+					concatenatedVariables = concatenatedVariables.substring(
+						0,
+						concatenatedVariables.length - 2
+					);
+				}
+
+				// check if concatenatedVariables is empty
+				if (concatenatedVariables === "undefined") {
+					concatenatedVariables = "Missing Variable Names";
+				}
+
+				this.variableList[category] = concatenatedVariables;
+			});
+			return formattedResults;
+		},
+	},
 	async beforeMount() {
-		// Load CodeBook.csv into results
+		console.log("PAPAPARSE");
 		await Papa.parse("/CodeBook.csv", {
 			download: true,
 			header: true,
 			complete: (results) => {
 				const res = results.data;
 
-				// Create set of unique VariableCategories
-				const uniqueCategories = new Set();
-				res.forEach((row) =>
-					uniqueCategories.add(row.VariableCategory)
-				);
-
-				// For each unique VariableCategory, add a row with the category name
-				var formattedResults = {};
-				uniqueCategories.forEach((category) => {
-					formattedResults[category] = res.filter(
-						(row) => row.VariableCategory === category
-					);
-
-                    // Add a string of all variables into variableList
-                    var concatenatedVariables = "";
-
-                    formattedResults[category].forEach((row) => {
-                        concatenatedVariables += row.Variable + ", ";
-                    });
-
-                    if (concatenatedVariables.length > 100) {
-                        concatenatedVariables = concatenatedVariables.substring(0, 100) + "...";
-                    }
-                    else {
-                        concatenatedVariables = concatenatedVariables.substring(0, concatenatedVariables.length - 2);
-                    }
-
-                    this.variableList[category] = concatenatedVariables;
-				});
-
-				console.log(formattedResults);
-
-				this.results = formattedResults;
-                this.filteredResults = formattedResults;
+				console.log(res);
 			},
 		});
 
+		console.log("STOP PAPAPARSE");
 
-		// CodeBook Headers:
-		// VariableCategory,Variable,VariableDescription,IntrinsictoCohortDefinition,Important
+		const res = await store.dispatch("fetchCodebook");
+
+		const formattedResults = await this.formatCodebook(res);
+
+		const rawHeaders = await store.dispatch("fetchHeaders");
+
+		this.headers = rawHeaders.filter(
+			(header) => header !== "VariableCategory"
+		);
+		this.results = formattedResults;
+		this.filteredResults = formattedResults;
+
+		console.log("BEFORE MOUNT");
+		console.log(this.results);
+		console.log("Mounting...");
+	},
+	async mounted() {
+		if (this.$route.path == "/downloads") {
+			const codebookCSV = Papa.unparse(this.results);
+
+			console.log("CSV");
+			console.log(codebookCSV);
+
+			// Download the codebook as a CSV file
+			const element = document.createElement("a");
+			const file = new Blob([codebookCSV], { type: "text/csv" });
+			element.href = URL.createObjectURL(file);
+			element.download = "CodeBook.csv";
+			document.body.appendChild(element); // Required for this to work in FireFox
+			element.click();
+		}
 	},
 };
 </script>

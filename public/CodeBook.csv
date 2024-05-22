@@ -1,13 +1,13 @@
-VariableCategory,Variable,VariableDescription,IntrinsictoCohortDefinition,Importance,Notes,Formatted
-Admission Dx,Urinary Retention,,No,2 - Important to Study,"Binary y=1, n=0",TRUE
-Admission Dx,Initial Diagnosis,Admitting diagnosis (and description at qualifying encounter? - in DCF not sure what this means),No,2 - Important to Study,Categories,TRUE
-Admission Dx,Readmission Diagnosis,Admitting diagnosis at first readmission encounter within 6 months following discharge from qualifying encounter  ,No,2 - Important to Study,Categories,TRUE
-Admission Unit,Surgery,,No,2 - Important to Study,"Binary y=1, n=0",TRUE
-Admission Unit,Oncology,Patient was admitted to Oncology Unit - C7,Yes,Required,"Binary y=1, n=0",TRUE
-Admission Unit,Unit,"Tower and floor number. Ex: B6, C7, etc.",Yes,Required,Categories,TRUE
-Admitted With,Use of Psychotherapy and Medication,Eliminated due to no manual chart abstractions - confirm,No,11 - Beneficial,? Eliminated due to no manual chart abstractions - confirm?,TRUE
-Admitted With,CHF,,,,"Binary y=1, n=0",TRUE
-Admitted With,COVID-19,,,,"Binary y=1, n=0",TRUE
+VariableCategory,Variable,VariableDescription,Notes
+Admission Dx,Urinary Retention,,"Binary y=1, n=0"
+Admission Dx,Initial Diagnosis,Admitting diagnosis (and description at qualifying encounter? - in DCF not sure what this means),Categories
+Admission Dx,Readmission Diagnosis,Admitting diagnosis at first readmission encounter within 6 months following discharge from qualifying encounter  ,Categories
+Admission Unit,Surgery,,"Binary y=1, n=0"
+Admission Unit,Oncology,Patient was admitted to Oncology Unit - C7,"Binary y=1, n=0"
+Admission Unit,Unit,"Tower and floor number. Ex: B6, C7, etc.",Categories
+Admitted With,Use of Psychotherapy and Medication,Eliminated due to no manual chart abstractions - confirm,? Eliminated due to no manual chart abstractions - confirm?
+Admitted With,CHF,,"Binary y=1, n=0"
+Admitted With,COVID-19,,"Binary y=1, n=0"
 Admitted With,Nausea/Vomitting,"DCF Phrasing: 
 Severity of Nausea/Vomiting at initial presentation of pregnancy, as defined by: 
 
@@ -21,208 +21,207 @@ ED visits/admissions for nausea/vomiting
 
 Documented weight loss: if there is a negative relationship between any two pregnancy visits over course of pregnancy, as well as lbs lost. Weight for every visit (examine if weight loss occurs between any two visits).  
 
-???? need clarity. Are we asking how many antiemetics they were prescribed ""at initial presentation of pregancy""? And how many times they were historically seen in ED for NV by their first pregancy visit? Why initial? Are we trying to find a baseline of NV history to compare against? Isn't chronic NV rare, where there wouldn't likely be a history",,2 - Important to Study,"Binary y=1, n=0",TRUE
+???? need clarity. Are we asking how many antiemetics they were prescribed ""at initial presentation of pregancy""? And how many times they were historically seen in ED for NV by their first pregancy visit? Why initial? Are we trying to find a baseline of NV history to compare against? Isn't chronic NV rare, where there wouldn't likely be a history","Binary y=1, n=0"
 Admitted With,Substance Use Disorder,"o Positive urine drug screen 
 o ICD 10 codes: F10, F11, F12, F13, F14, F15, F16, F17, F18, F19 
-",No,10 - Beneficial,"Binary y=1, n=0",TRUE
-Admitted With,GI Disorders,Need Diagnosis Codes from Mover- Check DCF,,3 - Beneficial,Categories,TRUE
-Admitted With,previous mental illness diagnosis,(yes/no),,,Categories,TRUE
-Age,Adult Male,18 years or older AND male,Yes,1 - Required,"Binary y=1, n=0",TRUE
-Age,Adult Female,18 years or older AND female,Yes,1 - Required,"Binary y=1, n=0",TRUE
-Age,Adult,18 years or older,Yes,1 - Required,"Binary y=1, n=0",TRUE
-Age,Older than 89,90 years old or older,Yes,2 - Important to Study,"Binary y=1, n=0",TRUE
-Age,Category,Age categories (defined in notes),Yes,Required,"Categories: Child=0-12, Adolescent = 13-17, adult=18+",TRUE
-Age,Initial,Age at the time of initial admission,Yes,Required,Continuous,TRUE
-Age,Discharge,Age at the time of discharge,Yes,Required,Continuous,TRUE
-Age,Years,"Age in years, 18 and older",No,3 - Beneficial,Continuous,TRUE
-Age,Pregnancy Dx,Age at time of inital Pregnancy Diagnosis,No,5 - Beneficial,Continuous,TRUE
-Age,Father Age,Age of father,,,Continuous,TRUE
-Age,Mother Age,Age of mother,,,Continuous,TRUE
-Biological Sex,Numerical (M),Numerical with respect to males,No,6 - Beneficial,"Binary female=1, male=0",TRUE
-Biological Sex,Numerical (F),Numerical with respect to females,No,6 - Beneficial,"Binary male=1, female=0",TRUE
-Biological Sex,Male,Whether or not a patient is male,No,3 - Beneficial,"Binary y=1, n=0",TRUE
-Biological Sex,Female,Whether or not a patien is female,No,3 - Beneficial,"Binary y=1, n=0",TRUE
-Biological Sex,Categorical,Male/Female,No,5 - Beneficial,Categories,TRUE
-Biological Sex,Inclusive,Includes intersex,No,3 - Beneficial,Categories,TRUE
-BMI,Obese Class 1,BMI between 30.00 and 34.99,No,3 - Beneficial,"Binary y=1, n=0",TRUE
-BMI,Obese Class 2,BMI between 35.00 and 39.99,No,3 - Beneficial,"Binary y=1, n=0",TRUE
-BMI,Obese Class 3,BMI ï¿½ï¿½ï,No,3 - Beneficial,"Binary y=1, n=0",TRUE
-BMI,Obesity,BMI ï¿½ï¿½ï,No,3 - Beneficial,"Binary y=1, n=0",TRUE
-BMI,Categorical,BMI categories (defined in notes),No,2 - Important to Study,"Categories: Underweight=0-18.5, Normal=18.5-24.9, Overweight=25-29.9, Obese=30+",TRUE
-BMI,Initial,Body Mass Idex at time of admission,No,10 - Beneficial,Continuous,TRUE
-BMI,General,Patient's BMI,No,3 - Beneficial,Continuous,TRUE
-BMI,Pre-Pregnancy,,No,2 - Important to Study,Continuous,TRUE
-BMI,Delivery,Baby's BMI at the time of delivery,,,Continuous,TRUE
-Catheter Type,Silicon,Treated on/after 5/1/2022 - date policy was implmented of Silicon to latex caths,No,1 - Required,"Binary y=1, n=0",TRUE
-Catheter Type,Latex,Treated on/after 5/1/2022 - date policy was implmented of Silicon to latex caths,No,1 - Required,"Binary y=1, n=0",TRUE
-CAUTI,Present,Whether or not a catheter-associated UTI is present in the patient,No,1 - Required,"Binary y=1, n=0",TRUE
-CAUTI,Monthly Ratio,"CAUTI Standard Infection Ratio by Month, n CAUTI/n catheter insertions",No,1 - Required,Continuous,TRUE
-CAUTI,N per Month,Number of CAUTIs present for each month within study timeline,No,1 - Required,Count,TRUE
-Chaplain,Previous Consult,Whether or not a chaplain was previously consulted for the patient,No,Beneficial,"Binary y=1, n=0",TRUE
-Chaplain,Received referral,(yes/no),No,Required,"Binary y=1, n=0",TRUE
-Chaplain,Requested By,Who requested the chaplain consult,No,Required,"Categories: Consult, Chaplain Initiated Visit, Family, Interdisciplinary Huddle, Nurse, Outside Person, Pastor/Religious Leader, Patient, Physician/Provider, Staff, Other",TRUE
-Chief Complaint,Lower Back Pain,Patient compains of lower back pain,,,"Binary y=1, n=0",TRUE
-Consult Type,Surgery,"General Surgery, Neurosurgery, Orthopaedic Surgery",No,3 - Beneficial,Categorical,TRUE
-Count,x-rays,X-ray ordered during the initial ED/admission (if applicable) encounter? (yes/no) And a Count variable for Number of xrays ordered at initial ED/admission,No,3 - Beneficial,Continuous,TRUE
-Count,Admissions for NV,Number of hospital admissions for nausea or vomitting,,2 - Important to Study,Count,TRUE
-Count,Antiemetics,"Sum the number of types of antiemetics sent to pharmacy including: Zofran, Reglan, Diclegis (or B6/Doxylamine), Phenergan, Promethazine",,2 - Important to Study,Count,TRUE
-Count,ED Visits for NV,Number of ED visit for nausea or vomitting,,2 - Important to Study,Count,TRUE
-Count,BH Readmissions,"Number of Readmissions to inpatient behavioral health within 6 months of discharge at qualifying encounter (DCF variable says within 12 months however, everywhere else we note 6 months. Need to clarify phrasing)",No,1 - Required,Count,TRUE
-Count,Therapy Appts,"Number of therapy appointments with a licensed clinical social worker, psychologist within 6 months of discharge - Per DCF, Brandon notes Analytics states this can be pulled using ""provider Type""",No,2 - Important to Study,Count,TRUE
-Count,Thromboembolisms,Number of Thromoboembolic events that occured during qualifying encounter,No,6 - Important to Study,Count,TRUE
-Count,UC Inserted,Number of urinary catheters inserted,No,3 - Beneficial,Count,TRUE
-Count,UTI,Number of UTIs in a patient with catheter insertion thoughout stay,No,3 - Beneficial,Count,TRUE
-Count,90-Day ED Readmissions for LBP,Total number of re-admissions to ED for low back pain in 90 days,No,1 - Required,Count,TRUE
-Count,90-Day ED Re-Presentations for LBP,Total number of re-presentations to ED for low back pain in 90 days,No,1 - Required,Count,TRUE
-Count,Comorbidities,,No,2 - Important to Study,Count,TRUE
-Count,Diagnoses,,No,1 - Required,Count,TRUE
-Count,Follow-up chaplain service visits,,No,Beneficial,Count,TRUE
-Count,Medications,,No,3 - Beneficial,Count,TRUE
-Count,90-Day Readmissions,Number of readmissions within 90 days from initial encounter,No,Beneficial,Count,TRUE
-Count,Referrals Reqeusted,,No,Beneficial,Count,TRUE
-Count,3-Month New Patient Visits,Count number of visits within 3 months from the new patient visit,No,1 - Required,Count,TRUE
-Date,Admission,The date of initial admission for a patient,No,1 - Required,Date,TRUE
-Date,Diabetic Peripheral Neuropathy,Date of initial diagnosis,No,1 - Required,Date,TRUE
-Date,Diabetic Retinopathy,Date of initial diagnosis,No,1 - Required,Date,TRUE
-Date,Discharge,The date of discharge for a patient,Yes,1 - Required,Date,TRUE
-Date,End-stage Renal Disease,Date of initial diagnosis,No,1 - Required,Date,TRUE
-Date,Microalbuminuria,Date of initial diagnosis,No,1 - Required,Date,TRUE
-Date,Diabetes Dx,Date of initial diabetes or prediabetes diagnosis,No,1 - Required,Date,TRUE
-Date,Admissions,The set of all admission dates for a patient,Yes,Required,Set of dates,TRUE
-Diagnosis,Prediabetes,Patient needs one of these diabetes diagnoses,Yes,1 - Required,"Binary y=1, n=0",TRUE
+","Binary y=1, n=0"
+Admitted With,GI Disorders,Need Diagnosis Codes from Mover- Check DCF,Categories
+Admitted With,previous mental illness diagnosis,(yes/no),Categories
+Age,Adult Male,18 years or older AND male,"Binary y=1, n=0"
+Age,Adult Female,18 years or older AND female,"Binary y=1, n=0"
+Age,Adult,18 years or older,"Binary y=1, n=0"
+Age,Older than 89,90 years old or older,"Binary y=1, n=0"
+Age,Category,Age categories (defined in notes),"Categories: Child=0-12, Adolescent = 13-17, adult=18+"
+Age,Initial,Age at the time of initial admission,Continuous
+Age,Discharge,Age at the time of discharge,Continuous
+Age,Years,"Age in years, 18 and older",Continuous
+Age,Pregnancy Dx,Age at time of inital Pregnancy Diagnosis,Continuous
+Age,Father Age,Age of father,Continuous
+Age,Mother Age,Age of mother,Continuous
+Biological Sex,Numerical (M),Numerical with respect to males,"Binary female=1, male=0"
+Biological Sex,Numerical (F),Numerical with respect to females,"Binary male=1, female=0"
+Biological Sex,Male,Whether or not a patient is male,"Binary y=1, n=0"
+Biological Sex,Female,Whether or not a patien is female,"Binary y=1, n=0"
+Biological Sex,Categorical,Male/Female,Categories
+Biological Sex,Inclusive,Includes intersex,Categories
+BMI,Obese Class 1,BMI between 30.00 and 34.99,"Binary y=1, n=0"
+BMI,Obese Class 2,BMI between 35.00 and 39.99,"Binary y=1, n=0"
+BMI,Obese Class 3,BMI ï¿½ï¿½ï,"Binary y=1, n=0"
+BMI,Obesity,BMI ï¿½ï¿½ï,"Binary y=1, n=0"
+BMI,Categorical,BMI categories (defined in notes),"Categories: Underweight=0-18.5, Normal=18.5-24.9, Overweight=25-29.9, Obese=30+"
+BMI,Initial,Body Mass Idex at time of admission,Continuous
+BMI,General,Patient's BMI,Continuous
+BMI,Pre-Pregnancy,,Continuous
+BMI,Delivery,Baby's BMI at the time of delivery,Continuous
+Catheter Type,Silicon,Treated on/after 5/1/2022 - date policy was implmented of Silicon to latex caths,"Binary y=1, n=0"
+Catheter Type,Latex,Treated on/after 5/1/2022 - date policy was implmented of Silicon to latex caths,"Binary y=1, n=0"
+CAUTI,Present,Whether or not a catheter-associated UTI is present in the patient,"Binary y=1, n=0"
+CAUTI,Monthly Ratio,"CAUTI Standard Infection Ratio by Month, n CAUTI/n catheter insertions",Continuous
+CAUTI,N per Month,Number of CAUTIs present for each month within study timeline,Count
+Chaplain,Previous Consult,Whether or not a chaplain was previously consulted for the patient,"Binary y=1, n=0"
+Chaplain,Received referral,(yes/no),"Binary y=1, n=0"
+Chaplain,Requested By,Who requested the chaplain consult,"Categories: Consult, Chaplain Initiated Visit, Family, Interdisciplinary Huddle, Nurse, Outside Person, Pastor/Religious Leader, Patient, Physician/Provider, Staff, Other"
+Chief Complaint,Lower Back Pain,Patient compains of lower back pain,"Binary y=1, n=0"
+Consult Type,Surgery,"General Surgery, Neurosurgery, Orthopaedic Surgery",Categorical
+Count,x-rays,X-ray ordered during the initial ED/admission (if applicable) encounter? (yes/no) And a Count variable for Number of xrays ordered at initial ED/admission,Continuous
+Count,Admissions for NV,Number of hospital admissions for nausea or vomitting,Count
+Count,Antiemetics,"Sum the number of types of antiemetics sent to pharmacy including: Zofran, Reglan, Diclegis (or B6/Doxylamine), Phenergan, Promethazine",Count
+Count,ED Visits for NV,Number of ED visit for nausea or vomitting,Count
+Count,BH Readmissions,"Number of Readmissions to inpatient behavioral health within 6 months of discharge at qualifying encounter (DCF variable says within 12 months however, everywhere else we note 6 months. Need to clarify phrasing)",Count
+Count,Therapy Appts,"Number of therapy appointments with a licensed clinical social worker, psychologist within 6 months of discharge - Per DCF, Brandon notes Analytics states this can be pulled using ""provider Type""",Count
+Count,Thromboembolisms,Number of Thromoboembolic events that occured during qualifying encounter,Count
+Count,UC Inserted,Number of urinary catheters inserted,Count
+Count,UTI,Number of UTIs in a patient with catheter insertion thoughout stay,Count
+Count,90-Day ED Readmissions for LBP,Total number of re-admissions to ED for low back pain in 90 days,Count
+Count,90-Day ED Re-Presentations for LBP,Total number of re-presentations to ED for low back pain in 90 days,Count
+Count,Comorbidities,,Count
+Count,Diagnoses,,Count
+Count,Follow-up chaplain service visits,,Count
+Count,Medications,,Count
+Count,90-Day Readmissions,Number of readmissions within 90 days from initial encounter,Count
+Count,Referrals Reqeusted,,Count
+Count,3-Month New Patient Visits,Count number of visits within 3 months from the new patient visit,Count
+Date,Admission,The date of initial admission for a patient,Date
+Date,Diabetic Peripheral Neuropathy,Date of initial diagnosis,Date
+Date,Diabetic Retinopathy,Date of initial diagnosis,Date
+Date,Discharge,The date of discharge for a patient,Date
+Date,End-stage Renal Disease,Date of initial diagnosis,Date
+Date,Microalbuminuria,Date of initial diagnosis,Date
+Date,Diabetes Dx,Date of initial diabetes or prediabetes diagnosis,Date
+Date,Admissions,The set of all admission dates for a patient,Set of dates
+Diagnosis,Prediabetes,Patient needs one of these diabetes diagnoses,"Binary y=1, n=0"
 Diagnosis,Acute Kidney Failure,"Whether or not acute kidney failure is present in the patient
-",No,3 - Beneficial,"Binary y=1, n=0",TRUE
-Diagnosis,Adjustment Disorder,Whether or not Adjustment Disorder F43.2 is present in the patient,No,2 - Important to Study,"Binary y=1, n=0",TRUE
-Diagnosis,Alcohol Abuse,Positive dx for alcohol abuse,No,5 - Important to Study,"Binary y=1, n=0",TRUE
+","Binary y=1, n=0"
+Diagnosis,Adjustment Disorder,Whether or not Adjustment Disorder F43.2 is present in the patient,"Binary y=1, n=0"
+Diagnosis,Alcohol Abuse,Positive dx for alcohol abuse,"Binary y=1, n=0"
 Diagnosis,Anxiety,"Whether or not anxiety F40-F48 is present in the patient
-",No,2 - Important to Study,"Binary y=1, n=0",TRUE
+","Binary y=1, n=0"
 Diagnosis,Arterial Venous Embolism,"Whether or not an AV embolism is present in the patient
-",No,10 - Important to Study,"Binary y=1, n=0",TRUE
-Diagnosis,Atrial Fibrilation,Whether or not Afib is present in the patient,No,3 - Beneficial,"Binary y=1, n=0",TRUE
-Diagnosis,Bipolar Disorder,Whether or not bipolar disorder is present in the patient,,,"Binary y=1, n=0",TRUE
+","Binary y=1, n=0"
+Diagnosis,Atrial Fibrilation,Whether or not Afib is present in the patient,"Binary y=1, n=0"
+Diagnosis,Bipolar Disorder,Whether or not bipolar disorder is present in the patient,"Binary y=1, n=0"
 Diagnosis,Chonic Obstructive Pulmonary Disease (COPD),"Whether or not a patient was diagnosed with COPD
-",No,3 - Beneficial,"Binary y=1, n=0",TRUE
+","Binary y=1, n=0"
 Diagnosis,Coronary Artery Disease (CAD),"Whether or not a patient was diagnosed with CAD
-",No,3 - Beneficial,"Binary y=1, n=0",TRUE
+","Binary y=1, n=0"
 Diagnosis,Depression,"Whether or not a patient was diagnosed with depression
-",No,2 - Important to Study,"Binary y=1, n=0",TRUE
+","Binary y=1, n=0"
 Diagnosis,Diabetes mellitus,"Whether or not a patient was diagnosed with diabetes mellitus
-",No,3 - Beneficial,"Binary y=1, n=0",TRUE
-Diagnosis,Diabetes Type 2,Whether or not a patient was diagnosed with Diabetes Type 2,Yes,1 - Required,"Binary y=1, n=0",TRUE
+","Binary y=1, n=0"
+Diagnosis,Diabetes Type 2,Whether or not a patient was diagnosed with Diabetes Type 2,"Binary y=1, n=0"
 Diagnosis,Diabetic Peripheral Neuropathy,"Whether or not a patient was diagnosed with Diabetic Peripheral Neuropathy
-",No,1 - Required,"Binary y=1, n=0",TRUE
+","Binary y=1, n=0"
 Diagnosis,Diabetic Retinopathy,"Whether or not a patient was diagnosed with Diabetic Retinopathy
-",No,1 - Required,"Binary y=1, n=0",TRUE
-Diagnosis,DVT/PE,Deep Vein Thrombosis or Pulmonary Embolism,No,7 - Important to Study,"Binary y=1, n=0",TRUE
-Diagnosis,Pregnancy mental health dx,Whether or not a patient received a mental health dx during pregnancy,No,8 - Beneficial,"Binary y=1, n=0",TRUE
+","Binary y=1, n=0"
+Diagnosis,DVT/PE,Deep Vein Thrombosis or Pulmonary Embolism,"Binary y=1, n=0"
+Diagnosis,Pregnancy mental health dx,Whether or not a patient received a mental health dx during pregnancy,"Binary y=1, n=0"
 Diagnosis,Dyslipidemia,"Whether or not a patient was diagnosed with Dyslipidemia
-",Yes,2 - Important to Study,"Binary y=1, n=0",TRUE
-Diagnosis,End-stage Renal Disease,Whether or not a patient was diagnosed with End-stage Renal Disease,No,1 - Required,"Binary y=1, n=0",TRUE
-Diagnosis,Fetal Macrosomia,Whether or not a patient was diagnosed with a Fetal Macrosomia,No,2 - Important to Study,"Binary y=1, n=0",TRUE
-Diagnosis,Generalized Anxiety Disorder (GAD),Whether or not a patient was diagnosed with GAD,,,"Binary y=1, n=0",TRUE
-Diagnosis,Gestational Diabetes,Whether or not a patient was diagnosed with Gestational Diabetes,No,2 - Important to Study,"Binary y=1, n=0",TRUE
-Diagnosis,Hospice,,No,Beneficial,"Binary y=1, n=0",TRUE
-Diagnosis,Hyperemesis Gravidarum,Whether or not a patient was diagnosed with Hyperemesis Gravidarum,,1 - Required,"Binary y=1, n=0",TRUE
-Diagnosis,Hypertension,Whether or not a patient was diagnosed with Hypertension,No,2 - Important to Study,"Binary y=1, n=0",TRUE
-Diagnosis,Hypoalbuminemia,Whether or not a patient was diagnosed with Hypoalbuminemia,No,3 - Beneficial,"Binary y=1, n=0",TRUE
-Diagnosis,ICD-10,"ICD-10 diagnoses made during initial encounter, (New variable for each diagnosis)",No,1 - Required,"Binary y=1, n=0",TRUE
-Diagnosis,Iron-deficient Anemia,yes/no,No,3 - Beneficial,"Binary y=1, n=0",TRUE
-Diagnosis,Ischemic Heart Disease,yes/no,No,3 - Beneficial,"Binary y=1, n=0",TRUE
-Diagnosis,Liver Cirrhosis,Liver Cirrhosis Diagnosis,No,1 - Required,"Binary y=1, n=0",TRUE
-Diagnosis,Major Depressive Disorder,major depressive diagnosis ,,,"Binary y=1, n=0",TRUE
+","Binary y=1, n=0"
+Diagnosis,End-stage Renal Disease,Whether or not a patient was diagnosed with End-stage Renal Disease,"Binary y=1, n=0"
+Diagnosis,Fetal Macrosomia,Whether or not a patient was diagnosed with a Fetal Macrosomia,"Binary y=1, n=0"
+Diagnosis,Generalized Anxiety Disorder (GAD),Whether or not a patient was diagnosed with GAD,"Binary y=1, n=0"
+Diagnosis,Gestational Diabetes,Whether or not a patient was diagnosed with Gestational Diabetes,"Binary y=1, n=0"
+Diagnosis,Hospice,,"Binary y=1, n=0"
+Diagnosis,Hyperemesis Gravidarum,Whether or not a patient was diagnosed with Hyperemesis Gravidarum,"Binary y=1, n=0"
+Diagnosis,Hypertension,Whether or not a patient was diagnosed with Hypertension,"Binary y=1, n=0"
+Diagnosis,Hypoalbuminemia,Whether or not a patient was diagnosed with Hypoalbuminemia,"Binary y=1, n=0"
+Diagnosis,ICD-10,"ICD-10 diagnoses made during initial encounter, (New variable for each diagnosis)","Binary y=1, n=0"
+Diagnosis,Iron-deficient Anemia,yes/no,"Binary y=1, n=0"
+Diagnosis,Ischemic Heart Disease,yes/no,"Binary y=1, n=0"
+Diagnosis,Liver Cirrhosis,Liver Cirrhosis Diagnosis,"Binary y=1, n=0"
+Diagnosis,Major Depressive Disorder,major depressive diagnosis ,"Binary y=1, n=0"
 Diagnosis,Mental Illness Diagnosis,"Binary (y/n) ; INCLUDES:
-Major Deparessive Disorder, Generalized Anxiety Disorder, Bipolar Disorder, Substance Use Disorder",No,3 - Beneficial,"Binary y=1, n=0",TRUE
-Diagnosis,Myocardial Infarction (MI),Dr Ansari to define variable structure,Yes,9 - Important to Study,"Binary y=1, n=0",TRUE
-Diagnosis,Microalbuminuria,Diagnosis,No,2 - Important to Study,"Binary y=1, n=0",TRUE
+Major Deparessive Disorder, Generalized Anxiety Disorder, Bipolar Disorder, Substance Use Disorder","Binary y=1, n=0"
+Diagnosis,Myocardial Infarction (MI),Dr Ansari to define variable structure,"Binary y=1, n=0"
+Diagnosis,Microalbuminuria,Diagnosis,"Binary y=1, n=0"
 Diagnosis,Mood Disorder Diagnosis,"o Diagnosis of Mood Disorder:
-o Depression: F32.0-F33.3ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+o Depression: F32.0-F33.3ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 o Anxiety F40-F48 
 o Adjustment Disorder F43.2 
 o Bipolar Disorder F31 
 o Obsessive Compulsive Disorder F42 
-o Post Traumatic Stress Disorder F43.1 
-o Pa",Yes,1 - Required,"Binary y=1, n=0",TRUE
-Diagnosis,Non-Opiod Substance Use Disorder,,No,3 - Beneficial,"Binary y=1, n=0",TRUE
-Diagnosis,OCD,o Obsessive Compulsive Disorder F42 ,No,2 - Important to Study,"Binary y=1, n=0",TRUE
-Diagnosis,Other Specified Diabetes,Patient needs one of these diabetes diagnoses,Yes,1 - Required,"Binary y=1, n=0",TRUE
-Diagnosis,Other Substance Use Disorders,,,3 - Beneficial,"Binary y=1, n=0",TRUE
-Diagnosis,Panic Disorder,o Panic Disorder F41 ,No,2 - Important to Study,"Binary y=1, n=0",TRUE
-Diagnosis,PTSD,o Post Traumatic Stress Disorder F43.1 ,No,2 - Important to Study,"Binary y=1, n=0",TRUE
-Diagnosis,Cognitive or Developmental,Cognitive or Developmental Diagnosis present at time of qualifying encounter - Binary,No,3 - Beneficial,"Binary y=1, n=0",TRUE
-Diagnosis,schizoprenia,(yes/no),,,"Binary y=1, n=0",TRUE
-Diagnosis,Stroke/TIA,Stroke or Transient Ischemic Attack,No,8 - Important to Study,"Binary y=1, n=0",TRUE
-Diagnosis,substance use disorder,(yes/no),,,"Binary y=1, n=0",TRUE
-Diagnosis,SUD,Substance Use Disorder - Binary,No,3 - Beneficial,"Binary y=1, n=0",TRUE
-Diagnosis,Type 1 Diabetes,Patient needs one of these diabetes diagnoses,Yes,1 - Required,"Binary y=1, n=0",TRUE
+o Post T","Binary y=1, n=0"
+Diagnosis,Non-Opiod Substance Use Disorder,,"Binary y=1, n=0"
+Diagnosis,OCD,o Obsessive Compulsive Disorder F42 ,"Binary y=1, n=0"
+Diagnosis,Other Specified Diabetes,Patient needs one of these diabetes diagnoses,"Binary y=1, n=0"
+Diagnosis,Other Substance Use Disorders,,"Binary y=1, n=0"
+Diagnosis,Panic Disorder,o Panic Disorder F41 ,"Binary y=1, n=0"
+Diagnosis,PTSD,o Post Traumatic Stress Disorder F43.1 ,"Binary y=1, n=0"
+Diagnosis,Cognitive or Developmental,Cognitive or Developmental Diagnosis present at time of qualifying encounter - Binary,"Binary y=1, n=0"
+Diagnosis,schizoprenia,(yes/no),"Binary y=1, n=0"
+Diagnosis,Stroke/TIA,Stroke or Transient Ischemic Attack,"Binary y=1, n=0"
+Diagnosis,substance use disorder,(yes/no),"Binary y=1, n=0"
+Diagnosis,SUD,Substance Use Disorder - Binary,"Binary y=1, n=0"
+Diagnosis,Type 1 Diabetes,Patient needs one of these diabetes diagnoses,"Binary y=1, n=0"
 Diagnosis,Type I or Type II Diabetes,"Type I or Type II Diabetes (ICD-10 code)
 O24.11: Pre-existing Type 2 Diabetes Mellitus, in pregnancy (all subsets)
 E11.9: Type 2 Diabetes Mellitus without complications
 O24.01: Pre-existing Type 1 Diabetes Mellitus, in pregnancy (all subsets)
 E10.9: Type I Diabetes Mellitus without complications
- (Note, gestational diabetes is it's own diagnosis and variable)",No,2 - Important to Study,"Binary y=1, n=0",TRUE
-Diagnosis,Chronic Kidney Disease (CKD) Stage,stage 1-5,No,3 - Beneficial,Categories,TRUE
+ (Note, gestational diabetes is it's own diagnosis and variable)","Binary y=1, n=0"
+Diagnosis,Chronic Kidney Disease (CKD) Stage,stage 1-5,Categories
 Diagnosis,CHF Type,"Groups: 
 Acute Systolic (congestive) heart failure or acute on chronic systolic (congestive) heart failure: I50.21, I50.23
 
 Acute Diastolic (congestive) heart failure or acute on chronic diastolic (congestive) heart failure: I50.31, I50.33
 
-Acute Combined systolic (congestive) and diastolic (congestive) heart failure and acute on chronic combined heart failure: I50.41, I50.43",No,1 - Required,Categories,TRUE
-Diagnosis,Thromoboembolism,Pt had at least 1 thromoboembolic event within date range,Yes,1 - Required,"Binary y=1, n=0",TRUE
-Diagnosis,Cirrhosis Imaging,Liver Cirrhosis was observed on imaging - CT or Ultrasound,No,2 - Important to Study,Dr. Ansari will have to abstract,TRUE
-Discharged,Boolean,Whether or not a patient was discharged,,,"Binary y=1, n=0",TRUE
-Discharged,Inpatient Psych,Whether or not a patient was discharged from inpatient psych,Yes,1 - Required,"Binary y=1, n=0",TRUE
-Discharged,With UC,Whether or not a patient was discharged with a urinary catheter,No,2 - Important to Study,"Binary y=1, n=0",TRUE
-Discharged,With CHF,Whether or not a patient was discharged with CHF,Yes,1 - Required,"Binary y=1, n=0",TRUE
-Discontinued Med Restarted,Present,Whether a previously discontinued medication was restarted,No,2 - Important to Study,"Binary y=1, n=0",TRUE
+Acute Combined systolic (congestive) and diastolic (congestive) heart failure and acute on chronic combined heart failure: I50.41, I50.43",Categories
+Diagnosis,Thromoboembolism,Pt had at least 1 thromoboembolic event within date range,"Binary y=1, n=0"
+Diagnosis,Cirrhosis Imaging,Liver Cirrhosis was observed on imaging - CT or Ultrasound,Dr. Ansari will have to abstract
+Discharged,Boolean,Whether or not a patient was discharged,"Binary y=1, n=0"
+Discharged,Inpatient Psych,Whether or not a patient was discharged from inpatient psych,"Binary y=1, n=0"
+Discharged,With UC,Whether or not a patient was discharged with a urinary catheter,"Binary y=1, n=0"
+Discharged,With CHF,Whether or not a patient was discharged with CHF,"Binary y=1, n=0"
+Discontinued Med Restarted,Present,Whether a previously discontinued medication was restarted,"Binary y=1, n=0"
 Discontinued Med Restarted,Pregnancy,"Whether a previously discontinued medication was restarted at some point in pregnancy or in postpartum period (up to 6 weeks after delivery) 
-",No,2 - Important to Study,"Binary y=1, n=0",TRUE
-Distance,Zipcode,Distance From LRH Medical Center,No,3 - Beneficial,Calculate difference by ZIP codes from residence to Hosptial (can be calculated using Geosphere package in R),TRUE
-Dose Change,Present,Whether or not the dose of a patient's medication changed within a specified time frame,No,2 - Important to Study,"Binary y=1, n=0",TRUE
-Duration,Diabetes,Length of time from initial diabetes or prediabetes diagnosis to now,No,2 - Important to Study,Duration,TRUE
-Duration,Nausea/Vomitting,Length of time (possibly number of visits) a patient receives a nausea/vomitting dx ,,2 - Important to Study,Duration,TRUE
-ED Visit,Present,Whether or not patient has visited the ED,Yes,2 - Important to Study,"Binary y=1, n=0",TRUE
-Employment,Patient,Patient's employment,No,9 - Beneficial,Categories,TRUE
-Encounter Type,General,Categorical Variable: 1=Psychotherapy 2=Medication 3=Both,No,1 - Required,Categories,TRUE
-Ethnicity,Asian,Whether or not a patient is Asian,No,3 - Beneficial,"Binary y=1, n=0",TRUE
-Ethnicity,White,Whether or not a patient is White,No,3 - Beneficial,"Binary y=1, n=0",TRUE
-Ethnicity,Hispanic or Latino,Whether or not a patient is Hispanic or Latino,No,3 - Beneficial,"Binary y=1, n=0",TRUE
-Ethnicity,American Indian or Alaska Native,Whether or not a patient is American Indian or Alaska Native,No,3 - Beneficial,"Binary y=1, n=0",TRUE
-Ethnicity,Black or African American,Whether or not a patient is Black or African American,No,3 - Beneficial,"Binary y=1, n=0",TRUE
-Ethnicity,Native Hawaiian or Other Pacific Islander,Whether or not a patient is Native Hawaiian or Other Pacific Islander,No,3 - Beneficial,"Binary y=1, n=0",TRUE
-Ethnicity,Categories,,No,4 - Beneficial,"Categories: Asian, White, Hispanic or Latino, American Indian or Alaska Native, Black or African American, Native Hawaiian or Other Pacific Islander",TRUE
-Experienced a C-section at LRH,Present,Whether or not the patient experienced a C-section at LRH,Yes,1 - Required,"Binary y=1, n=0",TRUE
-Gestational Age,General,,,,Continuous,TRUE
-Gestational Age,First OB Appt,,No,7 - Beneficial,Continuous,TRUE
-Gestational Age,Inital Visit,,No,2 - Important to Study,Continuous,TRUE
-GLP-1,Present,has GLP-1 in medication list,No,2 - Important to Study,"Binary y=1, n=0",TRUE
-GLP-1,Prior,"Patient was using a GLP-1 Agonist prior to Pregnancy (Semaglutide/Ozempic/Rybelsus, Tirzepatide/Mounjaro, Liraglutide/Victoza, Dulaglutide/Trulicity",No,1 - Required,"Binary y=1, n=0",TRUE
-History,Mental Illness Diagnosis,"Schizophrenia, Bipolar, Substance Use, Major Depressive Disorder, Generalized Anxiety Disorder",No,Beneficial,"Binary y=1, n=0",TRUE
-History,Substance Abuse,,No,Beneficial,"Binary y=1, n=0",TRUE
-History,Tobacco Use,,No,Beneficial,"Binary y=1, n=0",TRUE
+","Binary y=1, n=0"
+Distance,Zipcode,Distance From LRH Medical Center,Calculate difference by ZIP codes from residence to Hosptial (can be calculated using Geosphere package in R)
+Dose Change,Present,Whether or not the dose of a patient's medication changed within a specified time frame,"Binary y=1, n=0"
+Duration,Diabetes,Length of time from initial diabetes or prediabetes diagnosis to now,Duration
+Duration,Nausea/Vomitting,Length of time (possibly number of visits) a patient receives a nausea/vomitting dx ,Duration
+ED Visit,Present,Whether or not patient has visited the ED,"Binary y=1, n=0"
+Employment,Patient,Patient's employment,Categories
+Encounter Type,General,Categorical Variable: 1=Psychotherapy 2=Medication 3=Both,Categories
+Ethnicity,Asian,Whether or not a patient is Asian,"Binary y=1, n=0"
+Ethnicity,White,Whether or not a patient is White,"Binary y=1, n=0"
+Ethnicity,Hispanic or Latino,Whether or not a patient is Hispanic or Latino,"Binary y=1, n=0"
+Ethnicity,American Indian or Alaska Native,Whether or not a patient is American Indian or Alaska Native,"Binary y=1, n=0"
+Ethnicity,Black or African American,Whether or not a patient is Black or African American,"Binary y=1, n=0"
+Ethnicity,Native Hawaiian or Other Pacific Islander,Whether or not a patient is Native Hawaiian or Other Pacific Islander,"Binary y=1, n=0"
+Ethnicity,Categories,,"Categories: Asian, White, Hispanic or Latino, American Indian or Alaska Native, Black or African American, Native Hawaiian or Other Pacific Islander"
+Experienced a C-section at LRH,Present,Whether or not the patient experienced a C-section at LRH,"Binary y=1, n=0"
+Gestational Age,General,,Continuous
+Gestational Age,First OB Appt,,Continuous
+Gestational Age,Inital Visit,,Continuous
+GLP-1,Present,has GLP-1 in medication list,"Binary y=1, n=0"
+GLP-1,Prior,"Patient was using a GLP-1 Agonist prior to Pregnancy (Semaglutide/Ozempic/Rybelsus, Tirzepatide/Mounjaro, Liraglutide/Victoza, Dulaglutide/Trulicity","Binary y=1, n=0"
+History,Mental Illness Diagnosis,"Schizophrenia, Bipolar, Substance Use, Major Depressive Disorder, Generalized Anxiety Disorder","Binary y=1, n=0"
+History,Substance Abuse,,"Binary y=1, n=0"
+History,Tobacco Use,,"Binary y=1, n=0"
 History,Other Obesity Intervention,"History of other obesity interventions other than GLP1 Agonists: Bariatric Sx (Located in surgical history
 ICD10 Z98.84 personal history of bariatric surgery), Metformin < This is the generic. Brand name is Glucophage.
 Phentermine/Lonamin
 Phentermine-Topiramate/Qsymia
 Bupropion-Naltrexone/Contrave
-Bupropion/Welbutrin",No,2 - Important to Study,"Binary y=1, n=0",TRUE
+Bupropion/Welbutrin","Binary y=1, n=0"
 History,Psychoactive Medication,"o Historically on a medication for one of the diagnoses above (see medications list in independent variables list) 
-",Yes,1 - Required,"Binary y=1, n=0",TRUE
-History,Urinary Retention,History of urinary retenion (from prior to admission? How can this be retrieved from EHR?),No,3 - Beneficial,"Binary y=1, n=0",TRUE
-History,Marijuana Use,ICD 10 Code (or if able positive drug screen),No,1 - Required,"Binary y=1, n=0",TRUE
-History,Tobacco Use,,,3 - Beneficial,"Binary y=1, n=0",TRUE
-Infant Mortality,General,(yes/no),,,"Binary y=1, n=0",TRUE
-Insurance Status,General,"Medicare, Medicaid, Private, Self-pay, etc.",No,9 - Beneficial,"Categories: Medicare, Medicaid, Private, Self-pay, etc.",TRUE
-Length of Stay,ICU,ICU LOS,,,Continuous,TRUE
-Length of Stay,Inpatient,Length of Stay (LOS) in days inpatient,No,Beneficial,Continuous,TRUE
-Length of Stay,Days,in days (for index encounter?),No,3 - Beneficial,Continuous or count,TRUE
-Living Situation,General,"Group Home, Independent, Homeless",No,3 - Beneficial,"Categories: Group Home, Independent, Homeless",TRUE
-Lower Back Pain,Initial,Admitted for low back pain at initial encounter,No,1 - Required,"Binary y=1, n=0",TRUE
-LRH FU Outpatient,General,"Patient had follow-up care with a LRH provider in an outpatient setting (Y/N).  if yes, data analytics to provide the provider type associated with the follow-up care receive ",No,2 - Important to Study,"Binary y=1, n=0",TRUE
-Marital Status,General,"single, married, etc.",,7 - Beneficial,"Categories: single, married",TRUE
-Max Recorded,Blood  Glucose,Maximum blood glucose recorded,No,2 - Important to Study,Continuous,TRUE
-Max Recorded,HA1C,Maximum recorded hemaglobin A1C recorded,No,,Continuous,TRUE
-Max Recorded,Microalbuminuria/CR level,? do you mean max albumin level?,No,2 - Important to Study,Continuous,TRUE
-Med Service Type,General,"Trauma, Surgery, etc",No,3 - Beneficial,"Categories: Trauma, Surgery, etc",TRUE
+","Binary y=1, n=0"
+History,Urinary Retention,History of urinary retenion (from prior to admission? How can this be retrieved from EHR?),"Binary y=1, n=0"
+History,Marijuana Use,ICD 10 Code (or if able positive drug screen),"Binary y=1, n=0"
+History,Tobacco Use,,"Binary y=1, n=0"
+Infant Mortality,General,(yes/no),"Binary y=1, n=0"
+Insurance Status,General,"Medicare, Medicaid, Private, Self-pay, etc.","Categories: Medicare, Medicaid, Private, Self-pay, etc."
+Length of Stay,ICU,ICU LOS,Continuous
+Length of Stay,Inpatient,Length of Stay (LOS) in days inpatient,Continuous
+Length of Stay,Days,in days (for index encounter?),Continuous or count
+Living Situation,General,"Group Home, Independent, Homeless","Categories: Group Home, Independent, Homeless"
+Lower Back Pain,Initial,Admitted for low back pain at initial encounter,"Binary y=1, n=0"
+LRH FU Outpatient,General,"Patient had follow-up care with a LRH provider in an outpatient setting (Y/N).  if yes, data analytics to provide the provider type associated with the follow-up care receive ","Binary y=1, n=0"
+Marital Status,General,"single, married, etc.","Categories: single, married"
+Max Recorded,Blood  Glucose,Maximum blood glucose recorded,Continuous
+Max Recorded,HA1C,Maximum recorded hemaglobin A1C recorded,Continuous
+Max Recorded,Microalbuminuria/CR level,? do you mean max albumin level?,Continuous
+Med Service Type,General,"Trauma, Surgery, etc","Categories: Trauma, Surgery, etc"
 Medication,Analgesic Opiod Agonsts,"ý	Morphine (MS Contin, Kadian)
 ý	Oxycodone (OxyContin, Roxicodone)
 ý	Hydromorphone (Dilaudid)
@@ -230,39 +229,39 @@ Medication,Analgesic Opiod Agonsts,"ý	Morphine (MS Contin, Kadian)
 ý	Fentanyl (Duragesic)
 ý	Tramadol (Ultram, Qdolo)
 ý	Hydrocodone (Vicodin)
-ý	Oxymorphone (Opana)",No,2 - Important to Study,"Binary y=1, n=0",TRUE
-Medication,Analgesic Opiod Codine Combo,Acetaminophen + Codeine (Vopac),No,2 - Important to Study,"Binary y=1, n=0",TRUE
-Medication,Anticonulsant,"o Anticonvulsant (Carbamazepine, Lamotrigine/Lamictal) ",No,2 - Important to Study,"Binary y=1, n=0",TRUE
+ý	Oxymorphone (Opana)","Binary y=1, n=0"
+Medication,Analgesic Opiod Codine Combo,Acetaminophen + Codeine (Vopac),"Binary y=1, n=0"
+Medication,Anticonulsant,"o Anticonvulsant (Carbamazepine, Lamotrigine/Lamictal) ","Binary y=1, n=0"
 Medication,Anticonvulsants ,"ý	Gabapentin (Neurontin)
 ý	Pregabalin (Lyrica) 
-ý	Midazolam (Versed)",No,2 - Important to Study,"Binary y=1, n=0",TRUE
-Medication,Antimanic,o Antimanic drug (Lithium) ,No,2 - Important to Study,"Binary y=1, n=0",TRUE
-Medication,Antipsychotic,"o Antipsychotic Medications (Olanzapine, Aripiprazole, Risperidone, Clozapine, Quetiapine, Haldol) ",No,2 - Important to Study,"Binary y=1, n=0",TRUE
-Medication,Anxiolytic,o Anxiolytic (Buspirone) ,No,2 - Important to Study,"Binary y=1, n=0",TRUE
+ý	Midazolam (Versed)","Binary y=1, n=0"
+Medication,Antimanic,o Antimanic drug (Lithium) ,"Binary y=1, n=0"
+Medication,Antipsychotic,"o Antipsychotic Medications (Olanzapine, Aripiprazole, Risperidone, Clozapine, Quetiapine, Haldol) ","Binary y=1, n=0"
+Medication,Anxiolytic,o Anxiolytic (Buspirone) ,"Binary y=1, n=0"
 Medication,Glucocorticoids,"ý	Cortisone (Cortone)
 ý	Prednisone (Deltasone)
-ý	Dexamethasone (Decadron)",No,2 - Important to Study,"Binary y=1, n=0",TRUE
+ý	Dexamethasone (Decadron)","Binary y=1, n=0"
 Medication,Local Anesthetic,"ý	Ropivacaine (Naropin, Rocaine)
 ý	Bupivacaine (Marcaine, Sensorcaine) 
-ý	Lidocaine (Xylocaine)",No,2 - Important to Study,"Binary y=1, n=0",TRUE
-Medication,Insulin,Has insulin in medication list,No,2 - Important to Study,"Binary y=1, n=0",TRUE
-Medication,IV Pain Medication Pump,,No,Beneficial,"Binary y=1, n=0",TRUE
-Medication,Metformin,has metformin in medication list,No,2 - Important to Study,"Binary y=1, n=0",TRUE
-Medication,Nitrous Oxide,(yes/no),,,"Binary y=1, n=0",TRUE
-Medication,Prescribed Pain Medication,Was the patient prescribed any of the medications in the pain management medication class list prior to discharge,No,1 - Required,"Binary y=1, n=0",TRUE
-Medication,antidepressants,"Prozac (Fluoxetine), Paxil (Paroxetine HCl), Zoloft (Sertraline), Lexapro (Escitalopram oxalate), Celexa (Citalopram), Luvox (Fluvoxamine), Cymbalta (Duloxetine), Effexor (Venlafaxine), Pristiq (Desvenlafaxine succinate), Trintellix (Vortioxetine), Fetzima (Levomilnacipran), Remeron (Mirtazapine), Wellbutrin (Bupropion HCl), Viibyrd (Vilazodone), Amitriptyline (Elavil), Nortriptyline (Aventyl, Pamelor), Strattera (Atomoxetine)",,,"Binary y=1, n=0",TRUE
-Medication,anxiolytics,"BuSpar (Buspirone), Vistaril (Hydroxyzine pamoate), Propanololm (Inderal), Clonidine (Catapres), Prazosin (Minipress), Gabapentin (Neurontin), Klonopin (Clonazepam), Valium (Diazepam), Ativan (Lorazepam), Xanax (Alprazolam), Librium (Chloradiazepoxide HCl ",,,"Binary y=1, n=0",TRUE
-Medication,first-grade antipsychotics,"Haldol (Haloperidol), Perphenazine (Trilafon), Thorazine (Chloropromazine), Prolixin (Fluphenazine HCl)",,,"Binary y=1, n=0",TRUE
-Medication,mood stabilizers,"Lithium carbonate (Eskalith), Depakote (Divaloproex), Tegretol (Carbamazepine), Lamictal (Lamotrigine), Trileptal (Oxcarbazepine), Topamax (Topiramate)",,,"Binary y=1, n=0",TRUE
-Medication,second-grade antipsychotics,"Abilify (Aripiprazole), Latuda (Lurasidone), Geodon (Ziprasidone HCl), Seroquel (Quetiapine), Risperdal (Risperidone), Zyprexa (Olanzapine), Invega (Paliperidone), Saphris (Asenapine meleate), Fanapt (Iloperidone), Vraylar (Cariprazine), Nuplazid (Primavanserine), Clozaril (Clozapine), Rexulti (Brexpiprazole)",,,"Binary y=1, n=0",TRUE
-Medication,sleep aids,"Melatonin, Benadryl (Diphenhydramine HCl), Trazodone (Desyrel), Doxepine (Cymbalta), Ambien (Zolpidem), Lunesta (Eszopiclone), Ramelteon (Rozerem), Restoril (Temazepam)",,,"Binary y=1, n=0",TRUE
-Medication,stimulants,"Ritalin (Methylphenidate HCl), Concerta (Methylphenidate), Adderall (Dextroamphetamine-amphetamine), Vyvanse (Lisdexafetamine), Focalin (Dexmethylphenidate)",,,"Binary y=1, n=0",TRUE
+ý	Lidocaine (Xylocaine)","Binary y=1, n=0"
+Medication,Insulin,Has insulin in medication list,"Binary y=1, n=0"
+Medication,IV Pain Medication Pump,,"Binary y=1, n=0"
+Medication,Metformin,has metformin in medication list,"Binary y=1, n=0"
+Medication,Nitrous Oxide,(yes/no),"Binary y=1, n=0"
+Medication,Prescribed Pain Medication,Was the patient prescribed any of the medications in the pain management medication class list prior to discharge,"Binary y=1, n=0"
+Medication,antidepressants,"Prozac (Fluoxetine), Paxil (Paroxetine HCl), Zoloft (Sertraline), Lexapro (Escitalopram oxalate), Celexa (Citalopram), Luvox (Fluvoxamine), Cymbalta (Duloxetine), Effexor (Venlafaxine), Pristiq (Desvenlafaxine succinate), Trintellix (Vortioxetine), Fetzima (Levomilnacipran), Remeron (Mirtazapine), Wellbutrin (Bupropion HCl), Viibyrd (Vilazodone), Amitriptyline (Elavil), Nortriptyline (Aventyl, Pamelor), Strattera (Atomoxetine)","Binary y=1, n=0"
+Medication,anxiolytics,"BuSpar (Buspirone), Vistaril (Hydroxyzine pamoate), Propanololm (Inderal), Clonidine (Catapres), Prazosin (Minipress), Gabapentin (Neurontin), Klonopin (Clonazepam), Valium (Diazepam), Ativan (Lorazepam), Xanax (Alprazolam), Librium (Chloradiazepoxide HCl ","Binary y=1, n=0"
+Medication,first-grade antipsychotics,"Haldol (Haloperidol), Perphenazine (Trilafon), Thorazine (Chloropromazine), Prolixin (Fluphenazine HCl)","Binary y=1, n=0"
+Medication,mood stabilizers,"Lithium carbonate (Eskalith), Depakote (Divaloproex), Tegretol (Carbamazepine), Lamictal (Lamotrigine), Trileptal (Oxcarbazepine), Topamax (Topiramate)","Binary y=1, n=0"
+Medication,second-grade antipsychotics,"Abilify (Aripiprazole), Latuda (Lurasidone), Geodon (Ziprasidone HCl), Seroquel (Quetiapine), Risperdal (Risperidone), Zyprexa (Olanzapine), Invega (Paliperidone), Saphris (Asenapine meleate), Fanapt (Iloperidone), Vraylar (Cariprazine), Nuplazid (Primavanserine), Clozaril (Clozapine), Rexulti (Brexpiprazole)","Binary y=1, n=0"
+Medication,sleep aids,"Melatonin, Benadryl (Diphenhydramine HCl), Trazodone (Desyrel), Doxepine (Cymbalta), Ambien (Zolpidem), Lunesta (Eszopiclone), Ramelteon (Rozerem), Restoril (Temazepam)","Binary y=1, n=0"
+Medication,stimulants,"Ritalin (Methylphenidate HCl), Concerta (Methylphenidate), Adderall (Dextroamphetamine-amphetamine), Vyvanse (Lisdexafetamine), Focalin (Dexmethylphenidate)","Binary y=1, n=0"
 Medication,Muscle Relaxants,"ý	Cyclobenzaprine (Flexeril)
 ý	Baclofen (Lioresal, Ozobax)
 ý	Methocarbamol (Robaxin)
 ý	Tizanidine (Zanaflex)
 ý	Orphenadrine (Norflex)
-ý	Metaxalone (Skelaxin)",No,2 - Important to Study,"Binary y=1, n=0",TRUE
+ý	Metaxalone (Skelaxin)","Binary y=1, n=0"
 Medication,Nonsteroildal Anti-Inflammatory Drugs (NSAIDS),"ý	Naproxen (Aleve)
 ý	Aspirin (Bayer)
 ý	Diclofenac (Voltaren, Cataflam, Zipsor)
@@ -271,20 +270,20 @@ Medication,Nonsteroildal Anti-Inflammatory Drugs (NSAIDS),"ý	Naproxen (Aleve)
 ý	Piroxicam (Feldene)
 ý	Indomethacin (Indocin)
 ý	Ibuprofen (Advil, Motrin)
-ý	Ketorolac (Toradol)",No,2 - Important to Study,"Binary y=1, n=0",TRUE
-Medication,Noradrenaline/Antidepressants,o Noradrenaline and specific serotonergic antidepressants (Mirtazapine) ,No,2 - Important to Study,"Binary y=1, n=0",TRUE
-Medication,Other,"o Other (Bupropion, Benzodiazepene, Hydroxyzine)  ",No,1 - Required,"Binary y=1, n=0",TRUE
+ý	Ketorolac (Toradol)","Binary y=1, n=0"
+Medication,Noradrenaline/Antidepressants,o Noradrenaline and specific serotonergic antidepressants (Mirtazapine) ,"Binary y=1, n=0"
+Medication,Other,"o Other (Bupropion, Benzodiazepene, Hydroxyzine)  ","Binary y=1, n=0"
 Medication,Misc,"ý	Colchicine (Colcrys)
-ý	Salicylic Acid",No,2 - Important to Study,"Binary y=1, n=0",TRUE
+ý	Salicylic Acid","Binary y=1, n=0"
 Medication,SARI's,"o Serotonin Agonists and Reuptake Inhibitors (Trazodone) 
-",No,2 - Important to Study,"Binary y=1, n=0",TRUE
-Medication,SNRI's,"o Selective Norepinephrine Reuptake Inhibitor (Duloxetine, Venlafaxine) ",No,2 - Important to Study,"Binary y=1, n=0",TRUE
-Medication,SSRI's,"o Selective Serotonin Reuptake Inhibitor (Fluoxetine, Sertraline, Citalopram, Escitalopram) ",No,2 - Important to Study,"Binary y=1, n=0",TRUE
-Medication,Statin,has statin in medication list,No,2 - Important to Study,"Binary y=1, n=0",TRUE
-Medication,Tricyclic Antidepressants,"o Tricyclic Antidepressants (Amitriptyline, Clomipramine, Dosulepin, Imipramine, Lofepramine, Nortriptyline) ",No,2 - Important to Study,"Binary y=1, n=0",TRUE
-Medication,Acetaminophen,Tylenol,No,2 - Important to Study,"Binary y=1, n=0",TRUE
-Medication,Creatine,Ansari to define,No,3 - Important to Study,Dr Ansari to define variable structure,TRUE
-Medication List,General,"Including dose, frequency and drug class (is this feasible)",No,12 - Beneficial,List,TRUE
+","Binary y=1, n=0"
+Medication,SNRI's,"o Selective Norepinephrine Reuptake Inhibitor (Duloxetine, Venlafaxine) ","Binary y=1, n=0"
+Medication,SSRI's,"o Selective Serotonin Reuptake Inhibitor (Fluoxetine, Sertraline, Citalopram, Escitalopram) ","Binary y=1, n=0"
+Medication,Statin,has statin in medication list,"Binary y=1, n=0"
+Medication,Tricyclic Antidepressants,"o Tricyclic Antidepressants (Amitriptyline, Clomipramine, Dosulepin, Imipramine, Lofepramine, Nortriptyline) ","Binary y=1, n=0"
+Medication,Acetaminophen,Tylenol,"Binary y=1, n=0"
+Medication,Creatine,Ansari to define,Dr Ansari to define variable structure
+Medication List,General,"Including dose, frequency and drug class (is this feasible)",List
 Medication prescribed at discharge,General,"Groups: 
 Lasix (Furosemide) prescribed only: 
 q.d (once a day) (yes/no)
@@ -298,96 +297,96 @@ Bumex (Bumetamide) prescribed only
 
 Zaroxolyn (Metolazone) prescribed in combination with Lasix (Furosemide)
 
-None of the above",No,1 - Required,Categories,TRUE
-Patient Charting Software,BOTH Epic and Cerner,Patient had at least one visit recorded in Epic and one isit recorded in Cerner,Yes,1 - Required,"Binary y=1, n=0",TRUE
+None of the above",Categories
+Patient Charting Software,BOTH Epic and Cerner,Patient had at least one visit recorded in Epic and one isit recorded in Cerner,"Binary y=1, n=0"
 Physician,Specialty/background,"o OBGYN (would show as prescriber in EPIC) 
 
 o Psychiatrist (may show as prescriber in EPIC as historical med, or patient reported at initial OB visit) 
 
 o Other primary care (may show as prescriber in EPIC as historical med, or patient reported at initial OB visit) 
-",No,1 - Required,Categories,TRUE
-Pregnancy,preterm delivery,(yes/no),,,as defined by less than 37 weeks gestation,TRUE
-Pregnancy,First delivery,(yes/no),,,"Binary y=1, n=0",TRUE
-Pregnancy,Multiple pregnancies,(yes/no),,,"Binary y=1, n=0",TRUE
-Pregnancy,Pregnant,Only pregnant women treated at LRH are included in this study,Yes,1 - Required,"Binary y=1, n=0",TRUE
-Pregnancy,Psychoactive Medications Prior to Pregnancy,Any of the listed Psychoactive medications below,No,2 - Important to Study,"Binary y=1, n=0",TRUE
-Pregnancy,Seen in 1st Trimester,Indicator that the patient was seen at least once for pregnancy within their first trimester (Trimester 1: Conception to Week 12),,1 - Required,"Binary y=1, n=0",TRUE
-Pregnancy,Seen in 2nd Trimester,Indicator that the patient was seen at least once for pregnancy within their first trimester (Trimester 2: Week 13 to Week 27),,,"Binary y=1, n=0",TRUE
-Pregnancy,Seen in 3rd Trimester,Indicator that the patient was seen at least once for pregnancy within their first trimester (Trimester 3: Week 28 to Week 40 (or later),,,"Binary y=1, n=0",TRUE
+",Categories
+Pregnancy,preterm delivery,(yes/no),as defined by less than 37 weeks gestation
+Pregnancy,First delivery,(yes/no),"Binary y=1, n=0"
+Pregnancy,Multiple pregnancies,(yes/no),"Binary y=1, n=0"
+Pregnancy,Pregnant,Only pregnant women treated at LRH are included in this study,"Binary y=1, n=0"
+Pregnancy,Psychoactive Medications Prior to Pregnancy,Any of the listed Psychoactive medications below,"Binary y=1, n=0"
+Pregnancy,Seen in 1st Trimester,Indicator that the patient was seen at least once for pregnancy within their first trimester (Trimester 1: Conception to Week 12),"Binary y=1, n=0"
+Pregnancy,Seen in 2nd Trimester,Indicator that the patient was seen at least once for pregnancy within their first trimester (Trimester 2: Week 13 to Week 27),"Binary y=1, n=0"
+Pregnancy,Seen in 3rd Trimester,Indicator that the patient was seen at least once for pregnancy within their first trimester (Trimester 3: Week 28 to Week 40 (or later),"Binary y=1, n=0"
 Pregnancy,Substance use,"Substance use in pregnancy (tobacco, alcohol, drugs as admitted in pregnancy or found on urine drug screen after initial OB visit) 
-",No,3 - Beneficial,"Binary y=1, n=0",TRUE
-Pregnancy,Medications in prior pregnancies,Use of one of the afrementioned drugs in a prior pregnancy,No,9 - Beneficial,Categories,TRUE
-Pregnancy,Total Weight Gain,"Total Weight Gain in Pregnancy, in pounds",No,3 - Beneficial,Continuous,TRUE
-Pregnancy,Children 24w Gestation,Number of children born beyond 24 weeks gestation,No,3 - Beneficial,Count,TRUE
-Pregnancy,Women 24w Gestation,Number of times a woman has given birth at 24 weeks or later,,3 - Beneficial,Count,TRUE
-Pregnancy,n Prior Pregnancies,o Parity (how many prior pregnancies) ,No,6 - Beneficial,Count,TRUE
-Pregnancy,Singleton,(yes/no),,,"Binary y=1, n=0",TRUE
-Presented to ED with,General,"Sciatica, Lumbago, low back pain, Other intervertebral disc degeneration in lumbar region, Other intervertebral disc displacement in lumbar region, sacrococcygeal disorderes not elsewhere classified, pain in thoracic spine",Yes,Required,Categories,TRUE
-Primary Language,English,,No,Beneficial,"Binary y=1, n=0",TRUE
-Primary Language,Spanish,,No,8 - Beneficial,"Binary y=1, n=0",TRUE
-Primary Language,Categorical,,No,8 - Beneficial,Categories,TRUE
-Prior Back pain-related Surgery,Categorical,"Fusions, Discectomy, Laminectomy, Spinal Decompressions, Non-obstetric epidural injections",No,2 - Important to Study,Categories,TRUE
-Prior Visit,ICU,Intensive Care Unit Stay,No,3 - Beneficial,"Binary y=1, n=0",TRUE
-Prior Visit,PCP or Specialist,Patient has at least one recorded visit from aforementioned specialist of primary care,Yes,1 - Required,"Binary y=1, n=0",TRUE
-Prior Visit,PCP Visit,Patient has at least one recorded visit from specialist of primary care,Yes,2 - Important to Study,"Binary y=1, n=0",TRUE
-Prior Visit,Podiatry,Patient has at least one recorded visit from specialist of primary care,Yes,2 - Important to Study,"Binary y=1, n=0",TRUE
-Prior Visit,Nephrology,Patient has at least one recorded visit from specialist of primary care,Yes,2 - Important to Study,"Binary y=1, n=0",TRUE
-Psychotherapy,Compliance,Did the patient report going to their psychotherapy visit Y/N)ï,No,3 - Beneficial,"Binary y=1, n=0",TRUE
+","Binary y=1, n=0"
+Pregnancy,Medications in prior pregnancies,Use of one of the afrementioned drugs in a prior pregnancy,Categories
+Pregnancy,Total Weight Gain,"Total Weight Gain in Pregnancy, in pounds",Continuous
+Pregnancy,Children 24w Gestation,Number of children born beyond 24 weeks gestation,Count
+Pregnancy,Women 24w Gestation,Number of times a woman has given birth at 24 weeks or later,Count
+Pregnancy,n Prior Pregnancies,o Parity (how many prior pregnancies) ,Count
+Pregnancy,Singleton,(yes/no),"Binary y=1, n=0"
+Presented to ED with,General,"Sciatica, Lumbago, low back pain, Other intervertebral disc degeneration in lumbar region, Other intervertebral disc displacement in lumbar region, sacrococcygeal disorderes not elsewhere classified, pain in thoracic spine",Categories
+Primary Language,English,,"Binary y=1, n=0"
+Primary Language,Spanish,,"Binary y=1, n=0"
+Primary Language,Categorical,,Categories
+Prior Back pain-related Surgery,Categorical,"Fusions, Discectomy, Laminectomy, Spinal Decompressions, Non-obstetric epidural injections",Categories
+Prior Visit,ICU,Intensive Care Unit Stay,"Binary y=1, n=0"
+Prior Visit,PCP or Specialist,Patient has at least one recorded visit from aforementioned specialist of primary care,"Binary y=1, n=0"
+Prior Visit,PCP Visit,Patient has at least one recorded visit from specialist of primary care,"Binary y=1, n=0"
+Prior Visit,Podiatry,Patient has at least one recorded visit from specialist of primary care,"Binary y=1, n=0"
+Prior Visit,Nephrology,Patient has at least one recorded visit from specialist of primary care,"Binary y=1, n=0"
+Psychotherapy,Compliance,Did the patient report going to their psychotherapy visit Y/N)ï,"Binary y=1, n=0"
 Psychotherapy,Order,"Utilization of psychotherapy (was referral placed Y/N
-",No,2 - Important to Study,"Binary y=1, n=0",TRUE
-Race,Categorical,,No,3 - Beneficial,Categories,TRUE
-Readmissions,Readmitted for CHF Exacerbation within 12 months,yes/no,No,3 - Beneficial,"Binary y=1, n=0",TRUE
-Readmissions,Readmitted for CHF Exacerbation within 30 days,yes/no,No,3 - Beneficial,"Binary y=1, n=0",TRUE
-Readmissions,Readmit_30 Binary,Patient readmitted for low back pain within 30 days,No,1 - Required,"Binary y=1, n=0",TRUE
-Readmissions,Readmit_90 Binary,Patient readmitted for low back pain within 90 days,No,1 - Required,"Binary y=1, n=0",TRUE
-Readmissions,Readmitted for CHF Exacerbation within 12 months,Number of times patient was readmitted within 12 months for CHF,No,3 - Beneficial,Count,TRUE
-Readmissions,Readmitted for CHF Exacerbation within 30 days,Number of times patient was readmitted within 30 days for CHF,No,3 - Beneficial,Count,TRUE
-Reason for Visit,Low Back Pain,,No,2 - Important to Study,"Binary y=1, n=0",TRUE
-Reason for Visit,General,,No,Beneficial,Categories,TRUE
-Reason for Visit,First readmission,Reason for visit at first readmission encounter within 6 months following discharge from qualifying encounter ,No,2 - Important to Study,Categories,TRUE
-Reason for Visit,Index,Reason for visit in qualifying encounter,No,2 - Important to Study,Categories,TRUE
-Received Medication,adjuvant (ketamine),"type, dose and schedule of analgesia",,,"Binary y=1, n=0",TRUE
-Received Medication,egional/epidural anesthetic,"type, dose and schedule of analgesia",,,"Binary y=1, n=0",TRUE
-Received Medication,general anesthesia,"type, dose and schedule of analgesia",,,"Binary y=1, n=0",TRUE
-Received Medication,hydrocodone/acetaminophen (Norco),"type, dose and schedule of analgesia",,,"Binary y=1, n=0",TRUE
-Received Medication,morphine,"type, dose and schedule of analgesia",,,"Binary y=1, n=0",TRUE
-Received Medication,oxycodone/acetaminophen,"type, dose and schedule of analgesia",,,"Binary y=1, n=0",TRUE
-Received surgery,While admitted,Patient received surgery while admitted,No,Beneficial,"Binary y=1, n=0",TRUE
-Referral,Requested prior to surgery,If surgery (Y): Requested referral prior to surgery,No,Required,"Binary y=1, n=0",TRUE
-Referral,Type,"Self-referral, Family Referral, Healthcare Team-mediated Referral",No,Beneficial,Categories,TRUE
-Religion,Categorical,,No,Beneficial,Categories,TRUE
-Re-Presentation,ED_LowerBackPain_30d,Patient represented to ED for low back pain within 30 days,No,1 - Required,"Binary y=1, n=0",TRUE
-Re-Presentation,ED_LowerBackPain_90d,Patient represented to ED for low back pain within 90 days,No,1 - Required,"Binary y=1, n=0",TRUE
-Scans,MRI,MRI ordered during the initial ED/admission (if applicable) encounter? (yes/no) And a Count variable for Number of MRIs ordered at initial ED/admission,No,3 - Beneficial,"Binary y=1, n=0",TRUE
-Scans,CT ,Whether or not one or more CTs were ordered for a patient,No,3 - Beneficial,"Binary y=1, n=0",TRUE
-Scans,Number of MRIs,,,,Count,TRUE
-Scans,Number of CTs,The total number of CTs ordered for a patient,,,Count,TRUE
-Standardized Tests,Charlson Comorbidity Index,,No,Beneficial,Continuous ,TRUE
+","Binary y=1, n=0"
+Race,Categorical,,Categories
+Readmissions,Readmitted for CHF Exacerbation within 12 months,yes/no,"Binary y=1, n=0"
+Readmissions,Readmitted for CHF Exacerbation within 30 days,yes/no,"Binary y=1, n=0"
+Readmissions,Readmit_30 Binary,Patient readmitted for low back pain within 30 days,"Binary y=1, n=0"
+Readmissions,Readmit_90 Binary,Patient readmitted for low back pain within 90 days,"Binary y=1, n=0"
+Readmissions,Readmitted for CHF Exacerbation within 12 months,Number of times patient was readmitted within 12 months for CHF,Count
+Readmissions,Readmitted for CHF Exacerbation within 30 days,Number of times patient was readmitted within 30 days for CHF,Count
+Reason for Visit,Low Back Pain,,"Binary y=1, n=0"
+Reason for Visit,General,,Categories
+Reason for Visit,First readmission,Reason for visit at first readmission encounter within 6 months following discharge from qualifying encounter ,Categories
+Reason for Visit,Index,Reason for visit in qualifying encounter,Categories
+Received Medication,adjuvant (ketamine),"type, dose and schedule of analgesia","Binary y=1, n=0"
+Received Medication,egional/epidural anesthetic,"type, dose and schedule of analgesia","Binary y=1, n=0"
+Received Medication,general anesthesia,"type, dose and schedule of analgesia","Binary y=1, n=0"
+Received Medication,hydrocodone/acetaminophen (Norco),"type, dose and schedule of analgesia","Binary y=1, n=0"
+Received Medication,morphine,"type, dose and schedule of analgesia","Binary y=1, n=0"
+Received Medication,oxycodone/acetaminophen,"type, dose and schedule of analgesia","Binary y=1, n=0"
+Received surgery,While admitted,Patient received surgery while admitted,"Binary y=1, n=0"
+Referral,Requested prior to surgery,If surgery (Y): Requested referral prior to surgery,"Binary y=1, n=0"
+Referral,Type,"Self-referral, Family Referral, Healthcare Team-mediated Referral",Categories
+Religion,Categorical,,Categories
+Re-Presentation,ED_LowerBackPain_30d,Patient represented to ED for low back pain within 30 days,"Binary y=1, n=0"
+Re-Presentation,ED_LowerBackPain_90d,Patient represented to ED for low back pain within 90 days,"Binary y=1, n=0"
+Scans,MRI,MRI ordered during the initial ED/admission (if applicable) encounter? (yes/no) And a Count variable for Number of MRIs ordered at initial ED/admission,"Binary y=1, n=0"
+Scans,CT ,Whether or not one or more CTs were ordered for a patient,"Binary y=1, n=0"
+Scans,Number of MRIs,,Count
+Scans,Number of CTs,The total number of CTs ordered for a patient,Count
+Standardized Tests,Charlson Comorbidity Index,,Continuous 
 Standardized Tests,6 week EPDS,"Edinburgh Postnatal Depression Score at delivery, 6 weeks postpartum 
-",No,3 - Beneficial,Continuous,TRUE
-Treated,at LRH,"Between 12-9-15 and ""now""?",Yes,1 - Required,"Binary y=1, n=0",TRUE
-Treated,Pregnancy,,Yes,1 - Required,"Binary y=1, n=0",TRUE
-UA Reflex Indicator,General,Treated on/after 1/18/2023- date policy was updated from UA only to UA reflex indicator criteria,No,1 - Required,"Binary y=1, n=0",TRUE
-Urinary Catheter,Removed by nurse,"Treated on/after 8/16/2022 - date that ""nurse driven urinary catheter removal"" protocol was in place",No,1 - Required,"Binary y=1, n=0",TRUE
-Urinary Catheter,Urology insertion,Urinary Catheter inserted by Urology,No,2 - Important to Study,"Binary y=1, n=0",TRUE
-Urinary Catheter,Dwell time,Urinary Catheter Dwell Time,No,3 - Beneficial,"Binary y=1, n=0",TRUE
-Visit Completed,General,,No,Beneficial,"Binary y=1, n=0",TRUE
+",Continuous
+Treated,at LRH,"Between 12-9-15 and ""now""?","Binary y=1, n=0"
+Treated,Pregnancy,,"Binary y=1, n=0"
+UA Reflex Indicator,General,Treated on/after 1/18/2023- date policy was updated from UA only to UA reflex indicator criteria,"Binary y=1, n=0"
+Urinary Catheter,Removed by nurse,"Treated on/after 8/16/2022 - date that ""nurse driven urinary catheter removal"" protocol was in place","Binary y=1, n=0"
+Urinary Catheter,Urology insertion,Urinary Catheter inserted by Urology,"Binary y=1, n=0"
+Urinary Catheter,Dwell time,Urinary Catheter Dwell Time,"Binary y=1, n=0"
+Visit Completed,General,,"Binary y=1, n=0"
 Voluntary Stay,Status,"Admit status during inpatient stay at the qualifying encounter- Voluntary Legal, Involuntary Legal, Partially Voluntary
-",No,2 - Important to Study,Categories,TRUE
-Weight Difference,General,Weight Documented for every visit and difference calculated between all visits to see if any show weight loss. Or weight for every visit and the accompanying gestation age so I can calculate difference,,2 - Important to Study,Continuous,TRUE
-Zip Code,General,,No,Beneficial,Continuous,TRUE
-A1A,,Alpha 1 Antagonist,No,3 - Beneficial,"Binary y=1, n=0",FALSE
-A1A Doxazosin,,,No,3 - Beneficial,"Binary y=1, n=0",FALSE
-A1A Tamsulosin,,,No,3 - Beneficial,"Binary y=1, n=0",FALSE
-acuity of care,,(yes/no),,,"i.e., NICU, phototherapy",FALSE
-ALT,,Ansari to define,No,2 - Important to Study,Dr Ansari to define variable structure,FALSE
-AST,,Ansari to define,No,2 - Important to Study,Dr Ansari to define variable structure,FALSE
-Bilirubin Level,,Ansari to define,No,2 - Important to Study,Dr Ansari to define variable structure,FALSE
-Conintued Psychoactive Medication,,Prescribed at least once after initial pregnancy diagnosis,No,1 - Required,"Binary y=1, n=0 ???(how is continued defined? Were they prescribed this medication at least once after inital pregnancy?) - or in a certain trimester? We need to know for continued to be meaningful that the medication was prescribed after the first pregnancy diagnosis and before delivery.",FALSE
-CQ rounding,,Treated on/after 8/3/2020 - date policy was implemented,No,1 - Required,"Binary y=1, n=0",FALSE
-ED for Triage,,?,No,3 - Beneficial,"Binary y=1, n=0",FALSE
-First Admission Encounter,,? ,No,,"?- first admission compared to, what? We aren't collecting data for subsequent visits, other variables already are identified as information from index/initial visit",FALSE
-INR,,Ansari to define,No,2 - Important to Study,Dr Ansari to define variable structure,FALSE
-OBED for Triage,,?,No,3 - Beneficial,"Binary y=1, n=0",FALSE
-SIRS Alert (Y/N),,,No,Beneficial,"Binary y=1, n=0",FALSE
-Sodium Level,,Ansari to define,No,4 - Important to Study,Dr Ansari to define variable structure,FALSE
+",Categories
+Weight Difference,General,Weight Documented for every visit and difference calculated between all visits to see if any show weight loss. Or weight for every visit and the accompanying gestation age so I can calculate difference,Continuous
+Zip Code,General,,Continuous
+A1A,,Alpha 1 Antagonist,"Binary y=1, n=0"
+A1A Doxazosin,,,"Binary y=1, n=0"
+A1A Tamsulosin,,,"Binary y=1, n=0"
+acuity of care,,(yes/no),"i.e., NICU, phototherapy"
+ALT,,Ansari to define,Dr Ansari to define variable structure
+AST,,Ansari to define,Dr Ansari to define variable structure
+Bilirubin Level,,Ansari to define,Dr Ansari to define variable structure
+Conintued Psychoactive Medication,,Prescribed at least once after initial pregnancy diagnosis,"Binary y=1, n=0 ???(how is continued defined? Were they prescribed this medication at least once after inital pregnancy?) - or in a certain trimester? We need to know for continued to be meaningful that the medication was prescribed after the first pregnancy diagnosis and before delivery."
+CQ rounding,,Treated on/after 8/3/2020 - date policy was implemented,"Binary y=1, n=0"
+ED for Triage,,?,"Binary y=1, n=0"
+First Admission Encounter,,? ,"?- first admission compared to, what? We aren't collecting data for subsequent visits, other variables already are identified as information from index/initial visit"
+INR,,Ansari to define,Dr Ansari to define variable structure
+OBED for Triage,,?,"Binary y=1, n=0"
+SIRS Alert (Y/N),,,"Binary y=1, n=0"
+Sodium Level,,Ansari to define,Dr Ansari to define variable structure
