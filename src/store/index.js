@@ -30,6 +30,7 @@ export default createStore({
         user: null,
         codebook: null,
         headers: [],
+        uploadPercentage: -1,
     },
     getters: {
     },
@@ -42,7 +43,16 @@ export default createStore({
         },
         setHeaders(state, headers) {
             state.headers = headers;
-        }
+        },
+        setUploadPercentage(state, {complete, total}) {
+            console.log("Set Store Upload Percentage", complete, total);
+            if (complete == 0 || total == 0) {
+                state.uploadPercentage = 0;
+            }
+            else {
+                state.uploadPercentage = Math.round(complete / total * 100);
+            }
+        },
     },
     actions: {
         // Login
@@ -138,6 +148,8 @@ export default createStore({
             console.log("UPLOAD CODEBOOK");
             console.log("------------------------------------------");
 
+            // Set upload percentage to 0
+            commit('setUploadPercentage', { complete: 0, total: 0 });
             // create copy of file
             const file = Object.assign({}, codebookFile);
 
@@ -189,8 +201,12 @@ export default createStore({
                 await setDoc(doc(variablesCollection, category), {
                     variables: compositeCodebook[category]
                 });
+                console.log("Uploading", category);
+                console.log("completed", Object.keys(compositeCodebook).indexOf(category) + 1, "out of", Object.keys(compositeCodebook).length);
+                commit('setUploadPercentage', { complete: Object.keys(compositeCodebook).indexOf(category) + 1, total: Object.keys(compositeCodebook).length });
             }
 
+            commit('setUploadPercentage', { complete: 1, total: 1 });
             
         },
         async deleteVariablesCollection() {

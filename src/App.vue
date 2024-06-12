@@ -3,7 +3,7 @@
 	<Navbar :user="user" />
 	<div class="router-view">
 		<div class="page-view">
-			<router-view />
+			<router-view :user="user"/>
 		</div>
 		<Footer></Footer>
 	</div>

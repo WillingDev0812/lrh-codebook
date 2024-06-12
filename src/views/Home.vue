@@ -55,10 +55,22 @@
 										<h6 class="my-0">{{ category }}</h6>
 									</div>
 									<div
-										class="col-8 d-flex"
+										class="col-7 d-flex"
 										style="align-items: center"
 									>
 										{{ variableList[category] }}
+									</div>
+									<div class="col-1 d-flex">
+										<button
+											v-if="user"
+											@click="deleteCategory(category)"
+											class="btn"
+										>
+											<i
+												class="fa-solid fa-trash-can"
+												style="color: grey"
+											></i>
+										</button>
 									</div>
 									<div class="col-1"></div>
 									<div class="col-11">
@@ -85,12 +97,33 @@
 													:key="row.Variable"
 												>
 													<!-- Loop over values corresponding to headers -->
-                                                    <td
-                                                        v-for="header in headers"
-                                                        :key="header"
-                                                    >
-                                                        {{ row[header] }}
-                                                    </td>
+													<td
+														v-for="header in headers"
+														:key="header"
+													>
+														{{ row[header] }}
+													</td>
+													<td>
+														<button
+															v-if="user"
+															@click="
+																deleteVariable({
+																	category:
+																		category,
+																	variable:
+																		row.Variable,
+																})
+															"
+															class="btn"
+														>
+															<i
+																class="fa-solid fa-trash-can"
+																style="
+																	color: grey;
+																"
+															></i>
+														</button>
+													</td>
 												</tr>
 											</tbody>
 										</table>
@@ -115,6 +148,12 @@ export default {
 	name: "Home",
 	components: {
 		Navbar,
+	},
+	props: {
+		user: {
+			type: Object,
+			required: true,
+		},
 	},
 	watch: {
 		searchQuery: function (val) {
@@ -216,6 +255,12 @@ export default {
 				this.variableList[category] = concatenatedVariables;
 			});
 			return formattedResults;
+		},
+		async deleteCategory(category) {
+			console.log("Deleting category: " + category);
+		},
+		async deleteVariable(variable) {
+			console.log("Deleting variable: " + variable.variable);
 		},
 	},
 	async beforeMount() {

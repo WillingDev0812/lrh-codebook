@@ -44,8 +44,9 @@
 								"
 								@click="uploadFile"
 							>
-								Upload
+								{{ uploadBtnText }}
 							</button>
+                            <span>Warning: Do not close this window while the upload is running to avoid data corruption!</span>
 						</div>
 					</div>
 				</form>
@@ -101,8 +102,25 @@ export default {
 				headers: [],
 				rows: [],
 			},
+            uploadBtnText: "Upload",
 		};
 	},
+    watch: {
+        // Watch localUploadPercentage 
+        '$store.state.uploadPercentage': function() {
+            this.uploadBtnText = "Uploading... " + store.state.uploadPercentage + "%";
+            if (store.state.uploadPercentage == 100) {
+                this.uploadBtnText = "Upload";
+            }
+            console.log("Upload percentage", store.state.uploadPercentage);
+        }
+    },
+    computed: {
+        // Get uploadPercentage from vuex store
+        localUploadPercentage() {
+            return store.state.uploadPercentage;
+        },  
+    },
 	methods: {
 		async launchPreview() {
 			this.file = {
@@ -204,7 +222,8 @@ export default {
 				return;
 			}
 
-			store.dispatch("uploadCodebook", { codebookFile: this.file });
+			await store.dispatch("uploadCodebook", { codebookFile: this.file });
+            alert("Codebook uploaded successfully!");
 		},
 	},
 };
