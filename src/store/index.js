@@ -44,7 +44,7 @@ export default createStore({
         setHeaders(state, headers) {
             state.headers = headers;
         },
-        setUploadPercentage(state, {complete, total}) {
+        setUploadPercentage(state, { complete, total }) {
             console.log("Set Store Upload Percentage", complete, total);
             if (complete == 0 || total == 0) {
                 state.uploadPercentage = 0;
@@ -158,7 +158,7 @@ export default createStore({
             const headers = file.headers;
             const codebook = file.rows;
 
-            
+
 
             await dispatch('updateHeaders', { headers });
 
@@ -207,7 +207,7 @@ export default createStore({
             }
 
             commit('setUploadPercentage', { complete: 1, total: 1 });
-            
+
         },
         async deleteVariablesCollection() {
             const variablesCollection = collection(db, "variables");
@@ -286,6 +286,41 @@ export default createStore({
             element.download = "CodeBook.csv";
             document.body.appendChild(element); // Required for this to work in FireFox
             element.click();
+        },
+        async deleteCategory({ commit, dispatch }, { category }) {
+            console.log("\n------------------------------------------");
+            console.log("DELETE CATEGORY");
+            console.log("------------------------------------------");
+
+            const variablesCollection = collection(db, "variables");
+            await deleteDoc(doc(variablesCollection, category));
+        },
+        async deleteVariable({ commit, dispatch }, { category, variable }) {
+            console.log("\n------------------------------------------");
+            console.log("DELETE VARIABLE");
+            console.log("------------------------------------------");
+
+            const variablesCollection = collection(db, "variables");
+            const docRef = doc(variablesCollection, category);
+            const docSnap = await getDoc(docRef);
+            const variables = docSnap.data().variables;
+
+            const newVariables = variables.filter(v => {
+                const keys = Object.keys(v);
+                var flag = false;
+
+                for (const key of keys) {
+                    if (v[key] != variable[key]) {
+                        flag = true;
+                        break;
+                    }
+                }
+
+                return flag;
+            });
+            await setDoc(docRef, {
+                variables: newVariables
+            });
         },
     },
     modules: {

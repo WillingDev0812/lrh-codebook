@@ -111,7 +111,7 @@
 																	category:
 																		category,
 																	variable:
-																		row.Variable,
+																		row,
 																})
 															"
 															class="btn"
@@ -258,9 +258,33 @@ export default {
 		},
 		async deleteCategory(category) {
 			console.log("Deleting category: " + category);
+            // launch alert to confirm deletion
+            const confirmDel = confirm("Are you sure you want to delete this category?");
+
+            if (confirmDel) {
+                delete this.entryOpen[category];
+                delete this.variableList[category];
+                delete this.filteredResults[category];
+                store.dispatch("deleteCategory", { category: category });
+            }
 		},
-		async deleteVariable(variable) {
-			console.log("Deleting variable: " + variable.variable);
+		async deleteVariable({category, variable}) {
+			console.log("Deleting variable: ", variable);
+            console.log("From category: ", category);
+            // launch alert to confirm deletion
+            const confirmDel = confirm("Are you sure you want to delete this variable?");
+
+            if (confirmDel) {
+                const filteredVariables = this.filteredResults[category].filter(
+                    (row) => {
+                        return row !== variable;
+                    }
+                );
+                this.filteredResults[category] = filteredVariables;
+                store.dispatch("deleteVariable", { category: category, variable: variable });
+            }
+
+
 		},
 	},
 	async beforeMount() {
